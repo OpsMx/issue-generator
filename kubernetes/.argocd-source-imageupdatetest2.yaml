@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - docker.io/opsmxdev/issuegen:v3.9.8

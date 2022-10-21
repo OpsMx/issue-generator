@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: issuegen
+  name: issuegen
+spec:
+  selector:
+    matchLabels:
+      app: issuegen
+  template:
+    metadata:
+      labels:
+        app: issuegen
+        code: red
+    spec:
+      containers:
+        - image: 'docker.io/opsmxdev/issuegen:v3.0.6'
+          name: issuegen
+          ports:
+            - containerPort: 8088

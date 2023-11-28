@@ -1,6 +1,6 @@
     
-   test auto trigger
-   checking master commits details..this is for demo. 4/11/22 -ravig
+   Test auto trigger
+   Checking master commits details..this is for demo. 4/11/22 -ravig
    testing
    
    checking master commits details..this is for demo.

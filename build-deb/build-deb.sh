@@ -14,8 +14,8 @@ chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/scripts/init.d/*.sh
 
 # Package
 #pwd
-cp -rv $BASEDIR/issue-gen/DEBIAN/preinst issue-gen/opt/apps/issue-gen/preinst.sh
-cp -rv $BASEDIR/issue-gen/DEBIAN/postinst issue-gen/opt/apps/issue-gen/postinst.sh
+cp -rv $BASEDIR/issue-gen/DEBIAN/preinst  $BASEDIR/issue-gen/opt/apps/issue-gen/preinst.sh
+cp -rv $BASEDIR/issue-gen/DEBIAN/postinst $BASEDIR/issue-gen/opt/apps/issue-gen/postinst.sh
 
 chmod +x $BASEDIR/issue-gen/DEBIAN/preinst
 chmod +x $BASEDIR/issue-gen/DEBIAN/postinst

@@ -4,10 +4,10 @@ pwd
 cd -
 
 # Workspace: issue-generator git repository local
-cp -v /target/issuegen-0.1.jar issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
+cp -v target/issuegen-0.1.jar issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
 
 # Copy scripts to package
-cp -rv /scripts/ issue-gen/opt/apps/issue-gen/
+cp -rv scripts/ issue-gen/opt/apps/issue-gen/
 chmod +x issue-gen/opt/apps/issue-gen/scripts/*.sh
 chmod +x issue-gen/opt/apps/issue-gen/scripts/init.d/*.sh
 

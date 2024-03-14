@@ -1,8 +1,7 @@
 #!/bin/bash
 
-sname=$(basename $BASH_SOURCE)
-sdir=$(cd `dirname $BASH_SOURCE` && pwd)
+BASEDIR=$(dirname "$0")
 
-cd $sdir
+dpkg -i $BASEDIR/issue-gen.deb
 
-dpkg -i issue-gen.deb 
+echo "debin installed"

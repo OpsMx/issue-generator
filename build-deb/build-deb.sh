@@ -12,6 +12,9 @@ chmod +x issue-gen/opt/apps/issue-gen/scripts/init.d/*.sh
 
 # Package
 pwd
+cp -v issue-gen/DEBIAN/preinst issue-gen/opt/apps/issue-gen/preinst.sh
+cp -v issue-gen/DEBIAN/postinst issue-gen/opt/apps/issue-gen/postinst.sh
+
 chmod +x issue-gen/DEBIAN/preinst
 chmod +x issue-gen/DEBIAN/postinst
 chmod +x issue-gen/opt/apps/issue-gen/*.sh

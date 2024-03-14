@@ -10,8 +10,8 @@ if [ ! -d "$script_dir" ]; then
 fi
 
 # Iterate through each shell script in the directory
-cd $script_dir
-for script_file in *.sh; do
+#cd $script_dir #Danger. Parents scripts behave differently due to CD
+for script_file in $script_dir/*.sh; do
   # Check if the file is a regular file and executable
   if [ -f "$script_file" ] && [ -x "$script_file" ]; then
     echo "==> Running $script_file"

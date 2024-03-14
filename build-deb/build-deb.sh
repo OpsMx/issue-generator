@@ -3,13 +3,15 @@
 # Build
 
 BASEDIR=$(dirname "$0")
-echo "..$BASEDIR"
+echo "../$BASEDIR"
 
 # Workspace: issue-generator git repository local
-cp -v ..$BASEDIR/target/issuegen-0.1.jar issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
+cp -v ../$BASEDIR/target/issuegen-0.1.jar issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
 
+pwd 
+echo "test ..............."
 # Copy scripts to package
-cp -rv ..$BASEDIR/scripts/ issue-gen/opt/apps/issue-gen/
+cp -rv ../$BASEDIR/scripts/ issue-gen/opt/apps/issue-gen/
 chmod +x issue-gen/opt/apps/issue-gen/scripts/*.sh
 chmod +x issue-gen/opt/apps/issue-gen/scripts/init.d/*.sh
 

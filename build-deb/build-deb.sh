@@ -22,5 +22,5 @@ chmod +x $BASEDIR/issue-gen/DEBIAN/postinst
 chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/*.sh
 
 echo "Started deb to install ...."
-dpkg-deb --build issue-gen
+dpkg-deb --build $BASEDIR/issue-gen
 echo "Installation Completed ......."

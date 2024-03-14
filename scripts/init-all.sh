@@ -11,12 +11,13 @@ fi
 
 # Iterate through each shell script in the directory
 #cd $script_dir #Danger. Parents scripts behave differently due to CD
+pwd
 for script_file in $script_dir/*.sh; do
   # Check if the file is a regular file and executable
   if [ -f "$script_file" ] && [ -x "$script_file" ]; then
     echo "==> Running $script_file"
     # Execute the shell script
-     ./$script_file
+     $script_file
     echo "==> End of $script_file"
   else
     echo "Skipping $script_file (not executable)"

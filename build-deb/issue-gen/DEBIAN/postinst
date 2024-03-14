@@ -2,9 +2,12 @@
 #Post-install script
 
 #/opt/apps/issue-gen/issuegen-start.sh
-
+echo "Begin: Post-install script"
 sleep 30s
+echo "Pwd: `pwd`"
 echo "Pre-run for jar modification"
+cd /opt/apps/issue-gen
+echo "Pwd: `pwd`"
 . /opt/apps/issue-gen/scripts/init-all.sh
 
 echo "Starting application ..."
@@ -21,3 +24,4 @@ else
     echo "Application started successfully."
     exit 0  # Exit peacefully with code 0
 fi
+echo "End: Post-install script"

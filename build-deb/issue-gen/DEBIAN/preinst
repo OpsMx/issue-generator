@@ -2,7 +2,12 @@
 #Pre-install script
 
 #/opt/apps/issue-gen/issuegen-stop.sh
-
+echo "Begin: Pre-install script" 
+echo "pwd: `pwd`"
+sname=$(basename $BASH_SOURCE)
+sdir=$(cd `dirname $BASH_SOURCE` && pwd)
+echo "sdir: $sdir"
+ls -lFa $sdir
 sleep 180s
 #cd /opt/apps/issue-gen
 proc=`ps -ef|grep issuegen |grep -v grep |awk '{ print $2}'`
@@ -12,8 +17,11 @@ else
    echo "App is running. Stopping it before installation ..."
    kill -9 $proc
    DTSTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
-   export LOG_FILE="issuegen.log"
+   export LOG_FILE="issuegen"
    cd /opt/apps/issue-gen
-   cp -v $LOG_FILE $LOG_FILE_$DTSTAMP.log
+   echo "pwd: `pwd`"
+   echo "LOG_FILE: $LOG_FILE.log" 
+   cp -v $LOG_FILE.log ${LOG_FILE}_$DTSTAMP.log
 fi
 
+echo "End: Pre-install script" 

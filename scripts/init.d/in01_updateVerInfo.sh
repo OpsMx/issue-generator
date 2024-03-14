@@ -24,23 +24,19 @@ export CHOSTNAME=`cat /etc/hostname`
 #mv -v test-updated.txt test.txt
 #cat test.txt
 
+echo "Pwd: `pwd`"
 #Update the html files (testpage.html and issuegenerator.html) to differentiate deployment version
+
+echo "Updating BOOT-INF/classes/testpage.html"
 jar -xf issuegen-0.1.jar BOOT-INF/classes/testpage.html
-envsubst  < BOOT-INF/classes/testpage.html > BOOT-INF/classes/testpage.html-updated
-mv -v BOOT-INF/classes/testpage.html BOOT-INF/classes/testpage.html.orig
-mv -v BOOT-INF/classes/testpage.html-updated BOOT-INF/classes/testpage.html
+cp -fv BOOT-INF/classes/testpage.html BOOT-INF/classes/testpage.html.orig
+sed -i "s/\$APPVER/$APPVER/g" BOOT-INF/classes/testpage.html
+sed -i "s/\$CHOSTNAME/$CHOSTNAME/g" BOOT-INF/classes/testpage.html
 jar -uf issuegen-0.1.jar BOOT-INF/classes/testpage.html
 
-#Update the html files (testpage.html and issuegenerator.html) to differentiate deployment version
-jar -xf issuegen-0.1.jar BOOT-INF/classes/testpage.html
-envsubst  < BOOT-INF/classes/testpage.html > BOOT-INF/classes/testpage.html-updated
-mv -v BOOT-INF/classes/testpage.html BOOT-INF/classes/testpage.html.orig
-mv -v BOOT-INF/classes/testpage.html-updated BOOT-INF/classes/testpage.html
-jar -uf issuegen-0.1.jar BOOT-INF/classes/testpage.html
-
-#Update the html file to differentiate deployment version
+echo "Updating BOOT-INF/classes/static/issuegenerator.html"
 jar -xf issuegen-0.1.jar BOOT-INF/classes/static/issuegenerator.html
-envsubst  < BOOT-INF/classes/static/issuegenerator.html > BOOT-INF/classes/static/issuegenerator.html-updated
-mv -v BOOT-INF/classes/static/issuegenerator.html BOOT-INF/classes/static/issuegenerator.html.orig
-mv -v BOOT-INF/classes/static/issuegenerator.html-updated BOOT-INF/classes/static/issuegenerator.html
+cp -fv BOOT-INF/classes/static/issuegenerator.html BOOT-INF/classes/static/issuegenerator.html.orig
+sed -i "s/\$APPVER/$APPVER/g" BOOT-INF/classes/static/issuegenerator.html
+sed -i "s/\$CHOSTNAME/$CHOSTNAME/g" BOOT-INF/classes/static/issuegenerator.html
 jar -uf issuegen-0.1.jar BOOT-INF/classes/static/issuegenerator.html

@@ -6,7 +6,6 @@ cd -
 # Workspace: issue-generator git repository local
 cp -v target/issuegen-0.1.jar $BASEDIR/issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
 
-echo "copy test ........"
 # Copy scripts to package
 cp -rv -f  scripts/  $BASEDIR/issue-gen/opt/apps/issue-gen/
 chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/scripts/*.sh

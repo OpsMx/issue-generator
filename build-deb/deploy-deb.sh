@@ -5,4 +5,4 @@ sdir=$(cd `dirname $BASH_SOURCE` && pwd)
 
 cd $sdir
 
-dpkg -i doctor-api.deb 
+dpkg -i issue-gen.deb 

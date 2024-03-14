@@ -1,0 +1,4 @@
+#!/bin/bash
+#Post-install script
+. /opt/apps/issue-gen/postinst.sh
+

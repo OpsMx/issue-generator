@@ -1,7 +1,7 @@
 #!/bin/bash
 # Filename: init-all.sh (Present at /usr/local/bin/)
 # Assuming every startup scripts are in /opt/scripts/init.d/
-script_dir="/opt/scripts/init.d"
+script_dir="/opt/apps/issue-gen/scripts/init.d"
 
 # Quit if the scripts directory does not exist
 if [ ! -d "$script_dir" ]; then

@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Properties;
 import java.util.Random;
-import java.util.logging.Logger; 
 
 import javax.servlet.http.HttpServletRequest;
 

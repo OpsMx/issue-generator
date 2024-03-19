@@ -1,22 +1,25 @@
-#!/bin/bash -x
-
-# Build
+BASEDIR=$(dirname "$0")
+echo "../$BASEDIR"
+pwd
+cd -
 
 # Workspace: issue-generator git repository local
-cp -v ../target/issuegen-0.1.jar issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
+cp -v target/issuegen-0.1.jar $BASEDIR/issue-gen/opt/apps/issue-gen/issuegen-0.1.jar
 
 # Copy scripts to package
-cp -rv ../scripts/ issue-gen/opt/apps/issue-gen/
-chmod +x issue-gen/opt/apps/issue-gen/scripts/*.sh
-chmod +x issue-gen/opt/apps/issue-gen/scripts/init.d/*.sh
+cp -rv -f  scripts/  $BASEDIR/issue-gen/opt/apps/issue-gen/
+chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/scripts/*.sh
+chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/scripts/init.d/*.sh
 
 # Package
-pwd
-cp -v issue-gen/DEBIAN/preinst issue-gen/opt/apps/issue-gen/preinst.sh
-cp -v issue-gen/DEBIAN/postinst issue-gen/opt/apps/issue-gen/postinst.sh
+#pwd
+cp -rv $BASEDIR/issue-gen/DEBIAN/preinst  $BASEDIR/issue-gen/opt/apps/issue-gen/preinst.sh
+cp -rv $BASEDIR/issue-gen/DEBIAN/postinst $BASEDIR/issue-gen/opt/apps/issue-gen/postinst.sh
 
-chmod +x issue-gen/DEBIAN/preinst
-chmod +x issue-gen/DEBIAN/postinst
-chmod +x issue-gen/opt/apps/issue-gen/*.sh
+chmod +x $BASEDIR/issue-gen/DEBIAN/preinst
+chmod +x $BASEDIR/issue-gen/DEBIAN/postinst
+chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/*.sh
 
-dpkg-deb --build issue-gen
+echo "Prepating the DEBIAN  ...."
+dpkg-deb --build $BASEDIR/issue-gen
+echo "Now DEBIAN Ready"

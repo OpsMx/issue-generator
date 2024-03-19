@@ -8,7 +8,7 @@ public class Greeting {
 
     public Greeting(long id, String content) {  
         this.id = id;
-        this.content = content;
+        this.content = content.toString();
     }
 
     public long getId() {

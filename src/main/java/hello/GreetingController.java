@@ -26,7 +26,7 @@ public class GreetingController {
 
     static PropertiesUtil proUtil = new PropertiesUtil(); 
     static Properties properties = proUtil.getInstance();
-    static Logger  log= Logger.getLogger(this.class.getName()); 
+    //static Logger  log= Logger.getLogger(this.class.getName()); 
 
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value = "delay", defaultValue = "0") Integer delay) {

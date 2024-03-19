@@ -2,7 +2,7 @@
 
 # Define variables
 BASEDIR=$(dirname "$0")
-PKG_NAME="issuegen"
+PKG_NAME="issuegenerator"
 PKG_VERSION="0.1"
 PKG_DIR="$BASEDIR/issue-gen"
 PKG_DEBIAN_DIR="$PKG_DIR/DEBIAN"

@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -19,18 +20,11 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
-		<log4j2.version>2.16.0</log4j2.version>	
+		<log4j2.version>2.16.0</log4j2.version>
 		<sonar.organization>opsmx</sonar.organization>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  		<!-- sonar.projectKey>test-project</sonar.projectKey -->
-	       <sonar.host.url>https://sonar.opsmx.com</sonar.host.url>
-               <sonar.login>c845926879792f45d0d8e80928474c5d10b143fb</sonar.login>
-               <sonar.projectKey>issuegen-mvn</sonar.projectKey>
-               <sonar.projectName>issuegen-mvn</sonar.projectName>
-               <sonar.projectVersion>1.0</sonar.projectVersion>
-               <sonar.sources>src/main</sonar.sources>
-               <sonar.java.binaries>target/classes</sonar.java.binaries>		
-	</properties>	
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -79,28 +73,12 @@
 	</dependencies>
 
 	<build>
-           <resources>
-               <resource>
-                   <directory>src/main/resources</directory>
-                   <includes>
-		       <!-- include>application.properties</include>
-		       <include>static/images/**</include -->
-		       <include>**/**</include>
-                   </includes>
-	           <filtering>false</filtering>
-               </resource>
-	   </resources>		
-	      <plugins>
-	          <plugin>
-		      <groupId>org.springframework.boot</groupId>
-		      <artifactId>spring-boot-maven-plugin</artifactId>
-		  </plugin>
-                  <plugin>
-                      <groupId>org.sonarsource.scanner.maven</groupId>
-                      <artifactId>sonar-maven-plugin</artifactId>
-                      <version>3.9.0.2155</version> <!-- Or the latest version -->
-                  </plugin>			  
-	      </plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>

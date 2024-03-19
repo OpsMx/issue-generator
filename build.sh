@@ -7,7 +7,7 @@ sdir=$(cd `dirname $BASH_SOURCE` && pwd)
 mvn -B -DskipTests clean install -e
 
 #Test the jar execution
-#java -jar ./target/issuegen-0.1.jar
+java -jar ./target/issuegen-0.1.jar
 
 #Workspace: issue-generator git repository local
 echo "Copying artifacts to staging directory"

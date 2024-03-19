@@ -14,13 +14,24 @@ mkdir -p "$PKG_OPT_DIR/scripts/init.d"
 # Copy files to package directories
 cp -v "target/issuegen-$PKG_VERSION.jar" "$PKG_OPT_DIR/issuegen-$PKG_VERSION.jar"
 cp -rvf scripts/* "$PKG_OPT_DIR/scripts/"
-cp -v DEBIAN/preinst "$PKG_OPT_DIR/preinst.sh"
-cp -v DEBIAN/postinst "$PKG_OPT_DIR/postinst.sh"
+
+# Check if preinst and postinst files exist in issue-gen directory
+if [ -f "$PKG_DEBIAN_DIR/preinst" ]; then
+    cp -v "$PKG_DEBIAN_DIR/preinst" "$PKG_OPT_DIR/preinst.sh"
+else
+    echo "WARNING: 'preinst' file not found."
+fi
+
+if [ -f "$PKG_DEBIAN_DIR/postinst" ]; then
+    cp -v "$PKG_DEBIAN_DIR/postinst" "$PKG_OPT_DIR/postinst.sh"
+else
+    echo "WARNING: 'postinst' file not found."
+fi
 
 # Set permissions
-chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh "$PKG_DEBIAN_DIR/"*.sh
+chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh
 
 # Build Debian package
-echo "Preparing the DEBIAN package..."
+echo "Building the DEBIAN package..."
 dpkg-deb --build "$PKG_DIR" "$BASEDIR/${PKG_NAME}_${PKG_VERSION}_all.deb"
 echo "DEBIAN package is ready: ${PKG_NAME}_${PKG_VERSION}_all.deb"

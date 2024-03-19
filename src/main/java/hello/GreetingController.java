@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Properties;
 import java.util.Random;
-import java.util.logging.Logger; 
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,7 +25,6 @@ public class GreetingController {
 
     static PropertiesUtil proUtil = new PropertiesUtil(); 
     static Properties properties = proUtil.getInstance();
-    Logger log= Logger.getLogger(this.class.getName()); 
 
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value = "delay", defaultValue = "0") Integer delay) {

@@ -30,8 +30,7 @@ fi
 
 # Set permissions
 chmod +x "$PKG_OPT_DIR/scripts/"*.sh  "$PKG_OPT_DIR/scripts/init.d/"*.sh 
-
-echo "test path"
+echo "$PKG_OPT_DIR"
 chmod +x "$PKG_OPT_DIR/"*.sh  "$PKG_DEBIAN_DIR/"*.sh
 
 # Build Debian package

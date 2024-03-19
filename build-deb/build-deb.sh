@@ -21,5 +21,6 @@ chmod +x $BASEDIR/issue-gen/DEBIAN/postinst
 chmod +x $BASEDIR/issue-gen/opt/apps/issue-gen/*.sh
 
 echo "Prepating the DEBIAN  ...."
-dpkg-deb --build $BASEDIR/issue-gen
+#dpkg-deb --build $BASEDIR/issue-gen
+dpkg-deb --build $BASEDIR/issuegen_0.1_all
 echo "Now DEBIAN Ready"

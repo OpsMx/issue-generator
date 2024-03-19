@@ -12,7 +12,8 @@ PKG_OPT_DIR="$PKG_DIR/opt/apps/issue-gen"
 mkdir -p "$PKG_OPT_DIR/scripts/init.d"
 
 # Copy files to package directories
-cp -v "$BASEDIR/target/issuegen-$PKG_VERSION.jar" "$PKG_OPT_DIR/issuegen-$PKG_VERSION.jar"
+cd -
+cp -v "target/issuegen-$PKG_VERSION.jar" "$PKG_OPT_DIR/issuegen-$PKG_VERSION.jar"
 cp -rvf scripts/* "$PKG_OPT_DIR/scripts/"
 
 # Check if preinst and postinst files exist in issue-gen directory

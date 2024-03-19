@@ -15,9 +15,6 @@ mkdir -p "$PKG_OPT_DIR/scripts/init.d"
 cp -v "target/issuegen-$PKG_VERSION.jar" "$PKG_OPT_DIR/issuegen-$PKG_VERSION.jar"
 cp -rvf scripts/* "$PKG_OPT_DIR/scripts/"
 
-# Set permissions
-chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh
-
 # Check if preinst and postinst files exist in issue-gen directory
 if [ -f "$PKG_DEBIAN_DIR/preinst" ]; then
     cp -v "$PKG_DEBIAN_DIR/preinst" "$PKG_OPT_DIR/preinst.sh"
@@ -32,7 +29,10 @@ else
 fi
 
 # Set permissions
-#chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh
+chmod +x "$PKG_OPT_DIR/scripts/"*.sh  "$PKG_OPT_DIR/scripts/init.d/"*.sh 
+
+echo "test path"
+chmod +x "$PKG_OPT_DIR/"*.sh  "$PKG_DEBIAN_DIR/"*.sh
 
 # Build Debian package
 echo "Building the DEBIAN package..."

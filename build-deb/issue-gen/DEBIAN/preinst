@@ -7,8 +7,8 @@ echo "pwd: `pwd`"
 sname=$(basename $BASH_SOURCE)
 sdir=$(cd `dirname $BASH_SOURCE` && pwd)
 echo "sdir: $sdir"
-ls -lFa $sdir
-sleep 180s
+#ls -lFa $sdir
+#sleep 180s
 #cd /opt/apps/issue-gen
 proc=`ps -ef|grep issuegen |grep -v grep |awk '{ print $2}'`
 if [ -z "$proc" ]; then

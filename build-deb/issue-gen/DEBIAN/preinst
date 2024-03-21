@@ -10,7 +10,7 @@ echo "sdir: $sdir"
 #ls -lFa $sdir
 #sleep 180s
 #cd /opt/apps/issue-gen
-proc=`ps -ef | grep java | grep issue |grep -v grep |awk '{ print $2}'`
+proc=`ps -ef |grep -v grep |grep java |grep issue |awk '{ print $2}'`
 if [ -z "$proc" ]; then
    echo "App is not running. Proceeding with installation ..."
 else

@@ -29,7 +29,8 @@ else
 fi
 
 # Set permissions
-chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh
+chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh 2> /dev/null
+chmod +x "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh 2> /dev/null
 
 # Build Debian package
 echo "Building the DEBIAN package..."

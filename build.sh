@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sname=$(basename $BASH_SOURCE)
-sdir=$(cd `dirname $BASH_SOURCE` && pwd)
+#sname=$(basename $BASH_SOURCE)
+#sdir=$(cd `dirname $BASH_SOURCE` && pwd)
 
 # Build
 mvn -B -DskipTests clean install -e

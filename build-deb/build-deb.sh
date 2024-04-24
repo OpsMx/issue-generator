@@ -4,6 +4,7 @@
 BASEDIR=$(dirname "$0")
 PKG_NAME="issuegen"
 PKG_VERSION="0.1"
+DEB_REVISION="1"
 PKG_DIR="$BASEDIR/issue-gen"
 PKG_DEBIAN_DIR="$PKG_DIR/DEBIAN"
 PKG_OPT_DIR="$PKG_DIR/opt/apps/issue-gen"
@@ -32,7 +33,9 @@ fi
 chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh 2> /dev/null
 chmod +x "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh 2> /dev/null
 
+#VERSION=$((DEB_REVISION + 1))
+
 # Build Debian package
 echo "Building the DEBIAN package..."
-dpkg-deb --build "$PKG_DIR" "$BASEDIR/${PKG_NAME}_${PKG_VERSION}_all.deb"
-echo "DEBIAN package is ready: ${PKG_NAME}_${PKG_VERSION}_all.deb"
+dpkg-deb --build "$PKG_DIR" "$BASEDIR/${PKG_NAME}_${PKG_VERSION}-${DEB_REVISION}_all.deb"
+echo "DEBIAN package is ready: ${PKG_NAME}_${PKG_VERSION}-${DEB_REVISION}_all.deb"

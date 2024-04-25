@@ -1,5 +1,5 @@
 Package: issuegen
-Version: 0.1
+Version: 0.2
 Maintainer: Sagay
 Architecture: all
 Description: OpsMx tool that generates issues on demand for validating automated verification

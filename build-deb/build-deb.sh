@@ -33,15 +33,18 @@ else
     echo "WARNING: 'postinst' file not found."
 fi
 
+if [ -n "$BUILD_NUMBER" ]; then
+    PKG_VERSION="$PKG_VERSION-$BUILD_NUMBER"
+fi
+
+#Changing the Version
+sed -i 's/Version: .*xxx/Version: '$PKG_VERSION'/g' $PKG_DEBIAN_DIR/control
+
 # Set permissions
 chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh 2> /dev/null
 chmod +x "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh 2> /dev/null
 
 #VERSION=$((DEB_REVISION + 1))
-
-if [ -n "$BUILD_NUMBER" ]; then
-    PKG_VERSION="$PKG_VERSION-$BUILD_NUMBER"
-fi
 
 # Build Debian package
 echo "Building the DEBIAN package..."

@@ -48,3 +48,5 @@ echo "Building the DEBIAN package..."
 
 dpkg-deb --build "$PKG_DIR" "$BASEDIR/${PKG_NAME}_${PKG_VERSION}_all.deb"
 echo "DEBIAN package is ready: ${PKG_NAME}_${PKG_VERSION}_all.deb"
+debpack=$(echo "DEBIAN package is ready: ${PKG_NAME}_${PKG_VERSION}_all.deb")
+echo $debpack

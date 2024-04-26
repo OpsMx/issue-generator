@@ -33,7 +33,7 @@ if [ -n "$BUILD_NUMBER" ]; then
 fi
 
 # Changing the Debain Version
-#sed -i 's/Version: .*xxx/Version: '$PKG_VERSION'/g' $PKG_DEBIAN_DIR/control
+sed -i 's/Version: .*xxx/Version: '$PKG_VERSION'/g' $PKG_DEBIAN_DIR/control
 
 # Set permissions
 chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh 2> /dev/null

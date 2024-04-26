@@ -4,14 +4,9 @@
 BASEDIR=$(dirname "$0")
 PKG_NAME="issuegen"
 PKG_VERSION="0.1"
-#DEB_REVISION="3"
 PKG_DIR="$BASEDIR/issue-gen"
 PKG_DEBIAN_DIR="$PKG_DIR/DEBIAN"
 PKG_OPT_DIR="$PKG_DIR/opt/apps/issue-gen"
-
-#if [ -n "$BUILD_NUMBER" ]; then
-#    PKG_VERSION="$PKG_VERSION-$BUILD_NUMBER"
-#fi
 
 # Create directories if they don't exist
 mkdir -p "$PKG_OPT_DIR/scripts/init.d"
@@ -37,14 +32,12 @@ if [ -n "$BUILD_NUMBER" ]; then
     PKG_VERSION="$PKG_VERSION-$BUILD_NUMBER"
 fi
 
-#Changing the Version
+# Changing the Debain Version
 sed -i 's/Version: .*xxx/Version: '$PKG_VERSION'/g' $PKG_DEBIAN_DIR/control
 
 # Set permissions
 chmod +x "$PKG_OPT_DIR/scripts/"*.sh "$PKG_OPT_DIR/scripts/init.d/"*.sh 2> /dev/null
 chmod +x "$PKG_OPT_DIR/"*.sh "$PKG_DEBIAN_DIR/"*.sh 2> /dev/null
-
-#VERSION=$((DEB_REVISION + 1))
 
 # Build Debian package
 echo "Building the DEBIAN package..."

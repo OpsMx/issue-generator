@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.opsmx</groupId>
 	<artifactId>issuegen</artifactId>
-	<version>0.3</version>
+	<version>0.4</version>
 	<name>issuegen</name>
 	<description>Demo project for Spring Boot Stack Driver Integration
 	</description>

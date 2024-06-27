@@ -1,0 +1,96 @@
+.button {
+  width:200px;
+  height:80px;
+  border: none;
+  color: black;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  position: relative;
+  margin: 5px;
+  vertical-align: top;
+}
+
+.button:active{
+	background-color: #d6cfcf;
+}
+
+h4 {
+  padding-left: 6px;
+}
+
+.cnfh {
+	width:300px
+}
+
+
+.column {
+  float: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.warn {
+	background-color: yellow; /* Yellow */
+}
+
+.info {
+	background-color: #4CAF50; /* Green */
+}
+
+.error {
+	background-color: #dc4e4e; /* red */
+}
+
+.debug {
+	background-color: blue;
+}
+
+.critic {
+	background-color: red;
+}
+
+.np {
+	background-color: #e86767;
+}
+
+.ncd {
+	background-color: #e86767;
+}
+
+.soe {
+	background-color: #e86767;
+}
+
+.fnf {
+	background-color: #e86767;
+}
+
+.cnf {
+	background-color: #e86767;
+}
+
+.warn1 {
+	background-color: #FFEB3B;
+}
+
+.warn2 {
+	background-color: #FFEB3B;
+}
+
+.warn3 {
+	background-color: #FFEB3B;
+}
+
+
+.issue {
+	padding-left: 20px;
+}

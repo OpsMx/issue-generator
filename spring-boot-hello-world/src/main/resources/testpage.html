@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <title>Pet Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      function myFunction(value) {
+          var base_url = window.location.origin;
+          var request = new XMLHttpRequest();
+          var url = base_url+"/issues?issue="+value;
+          request.open('GET', url, true);
+          request.send();
+      }
+    </script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.value('baseUrl', "//" + window.location.host);
+        app.controller('myCtrl', function($scope, $http, baseUrl) {
+            /* var res = { "dogCount": 330 };
+            $scope.dogData = res.dogCount; */
+            $http({
+                method: 'GET',
+                url: baseUrl + "/dogcount",
+                headers: {
+                    'content-type': 'application/json'
+                },
+            }).then(function(res) {
+                $scope.dogCount = res.data.dogCount;
+            });
+
+            $http({
+                method: 'GET',
+                url: baseUrl + "/catcount",
+                headers: {
+                    'content-type': 'application/json'
+                },
+            }).then(function(res) {
+                $scope.catCount = res.data.catCount;
+
+            });
+
+            $http({
+                method: 'GET',
+                url: "http://localhost:8098" + "/catcount",
+                headers: {
+                    'content-type': 'application/json'
+                },
+            }).then(function(res) {
+                $scope.catCount2 = res.data.catCount;
+
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<div ng-app="myApp" ng-controller="myCtrl" class="container">
+    <h2 class="text-center">Welcome to Pet Store</h2><br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="thumbnail" data-text='Text 1' href="">
+                <img src="images/dog.jpg" alt="Dog" style="width:100%"><br>
+                <p class="icon-text text-center">No.of dogs available : {{dogCount}}</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="thumbnail" data-text='Text 2'>
+                <img src="images/cat.png" alt="Cat" style="width:100%"><br>
+                <p class="icon-text text-center">No.of cats available : {{catCount}} </p>
+                <!-- p class="icon-text text-center">No.of cats available : {{catCount}} and from second cat count : {{catCount2}} </p -->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input type="button" name="info_button" value="INFO" onclick="myFunction('INFO')">
+            <input type="button" name="debug_button" value="DEBUG" onclick="myFunction('DEBUG')">
+            <input type="button" name="warning_button" value="WARNING" onclick="myFunction('WARN')">
+            <input type="button" name="error_button" value="ERROR" onclick="myFunction('ERROR')">
+            <input type="button" name="critical_button" value="CRITICAL" onclick="myFunction('CRITICAL')">
+        </div>
+    </div>
+</div>
+<div style="color:lightgray;">
+  Version: $APPVER
+        </br>   
+  HostName: $CHOSTNAME
+</div> 
+</body>
+
+</html>

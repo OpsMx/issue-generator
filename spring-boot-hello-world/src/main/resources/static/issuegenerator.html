@@ -1,0 +1,139 @@
+<html lang="en">
+
+<head>
+    <title>Issue generator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/issuegenerator.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      function myFunction(value) {
+          var base_url = window.location.origin;
+          var request = new XMLHttpRequest();
+          var url = base_url+"/issue?type="+value;
+          request.open('GET', url, true);
+          request.send();
+      }
+      
+      function mainLog(value) {
+          var base_url = window.location.origin;
+          var request = new XMLHttpRequest();
+          var url = base_url+"/logs?type="+value;
+          request.open('GET', url, true);
+          request.send();
+      }
+      
+      function warnLog(value) {
+          var base_url = window.location.origin;
+          var request = new XMLHttpRequest();
+          var url = base_url+"/warn?type="+value;
+          request.open('GET', url, true);
+          request.send();
+      }
+      
+      function customLog(value) {
+    	  
+    	  var txtarea = document.getElementById("customtxt");
+    	  
+    	  if (txtarea.value.length == 0)
+          { 
+             alert("Provide custom message");  	
+             return false; 
+          }  
+    	  
+    	  msg = txtarea.value
+          var base_url = window.location.origin;
+          var request = new XMLHttpRequest();
+          var url = base_url+"/customlog?type="+value+"&msg="+escape(msg);
+          request.open('GET', url, true);
+          request.send();
+      }
+    </script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.value('baseUrl', "//" + window.location.host);
+    </script>
+</head>
+
+<body style="background-color:rgb(232, 221, 218);">
+<div ng-app="myApp" class="container">
+    <div>
+    	<h2> <p style="text-align:center;">Issue Generator <span style="float:right;font-size: 50%;align-items: center;height: 50px;padding: 0 10px;display: flex;">Master</span> </p> </h2> 
+    </div>
+    <div class="row issue">
+    	<h2>Log Types</h2>
+        <div>
+            <input type="button" class="button info" name="INFO" value="INFO" onclick="mainLog('INFO')">
+            <input type="button" class="button debug" name="DEBUG" value="DEBUG" onclick="mainLog('DEBUG')">
+            <input type="button" class="button warn" name="WARN" value="WARNING" onclick="mainLog('WARN')">
+            <input type="button" class="button error" name="ERROR" value="ERROR" onclick="mainLog('ERROR')">
+            <input type="button" class="button critic" name="CRITICAL" value="CRITICAL" onclick="mainLog('CRITICAL')">
+        </div>
+        <h2>Custom Message</h2>
+        <div>
+			  <textarea name="message" placeholder="Provide custom message" rows="4" cols="70" id="customtxt"></textarea>
+			  <br>
+			  <input type="submit" class="info" value="INFO" onclick="customLog('INFO')">
+			  <input type="submit" class="error" value="ERROR" onclick="customLog('ERROR')">
+			  <input type="submit" class="warn" value="WARN" onclick="customLog('WARN')">
+			  <input type="submit" class="debug" value="DEBUG" onclick="customLog('DEBUG')">
+			  <input type="submit" class="critic" value="CRITICAL"  onclick="customLog('CRITICAL')">
+        </div>
+    </div>
+    <div class="row issue">
+    	<h2>ERRORS</h2>
+    	<div>
+    		<h4>Runtime Exception</h4>
+    		<button type="submit" class="button np" name="null_pointer"  onclick="myFunction('NULL_POINTER')"><p>Null Pointer</p></button>
+    		<button type="submit" class="button np" name="illegal_argument_exception"  onclick="myFunction('ILLEGAL_ARGUMENT')"><p>Illegal Argument</p></button>
+    		<button type="submit" class="button np" name="array_index_out"  onclick="myFunction('ARRAY_INDEX_OUT_OF_BOUND')"><p>Array Index Out Of Bounds</p></button>
+    		<button type="submit" class="button np" name="string_index_out_of_bounds"  onclick="myFunction('STRING_INDEX_OUT_OF_BOUND')"><p>String Index Out Of Bounds</p></button>
+    		<button type="submit" class="button np" name="number_format_exception"  onclick="myFunction('NUMBER_FORMAT')"><p>Number Format</p></button>
+    	</div>
+    	<div class="column">
+    		<h4>Linkage Error</h4>
+    		<button type="submit" class="button ncd" name="no_class_def_found" onclick="myFunction('NO_CLASS_DEF_FOUND')"><p>No Class Def Found</p></button>
+    		<button type="submit" class="button ncd" name="no_such_method_found" onclick="myFunction('NO_SUCH_METHOD_FOUND')"><p>No Such Method Found</p></button>
+    	</div>
+    	<div class="column">
+    		<h4>Virtual Machine Error</h4>
+    		<button type="submit" class="button soe" name="stack_overflow_error" onclick="myFunction('STACK_OVERFLOW_ERROR')"><p>Stack Overflow</p></button>
+    		<button type="submit" class="button soe" name="out_of_memory" onclick="myFunction('OUT_OF_MEMORY')"><p>Out Of Memory</p></button>
+    	</div>
+    	<div class="column">
+    		<h4 class="cnfh">DB Error</h4>
+    		<button type="submit" class="button cnf" name="db_error"  onclick="myFunction('DB_ERROR')"><p>DB Error</p></button>
+    	</div>
+    </div>
+    <div class="row roe issue">
+    	<div class="column">
+    		<h4>IO Exception</h4>
+    		<button type="submit" class="button fnf" name="file_not_found" onclick="myFunction('FILE_NOT_FOUND')"><p>File Not Found</p></button>
+    	</div>
+    	<div class="column">
+    		<h4 class="cnfh">Reflective Operation Exception</h4>
+    		<button type="submit" class="button cnf" name="class_not_found"  onclick="myFunction('CLASS_NOT_FOUND')"><p>Class Not Found</p></button>
+    	</div>
+    </div>
+    <div class="row issue">
+    	<h2>WARNINGS</h2>
+        <div>
+        	<button type="submit" class="button warn1" name="garbage_collection"  onclick="warnLog('GARBAGE_COLLECTION')"><p>Garbage collection</p></button>
+        	<button type="submit" class="button warn1" name="deprecated_api"  onclick="warnLog('DEPRECATED_API')"><p>Deprecated API</p></button>
+        	<button type="submit" class="button warn1" name="version"  onclick="warnLog('VERSION')"><p>Version Not Match</p></button>
+        	<button type="submit" class="button warn1" name="db_warn"  onclick="warnLog('DB_WARN')"><p>DB WARNING</p></button>
+        </div>
+    </div>
+</div>
+<div style="color:lightgray;">
+  Version: $APPVER
+        </br>   
+  HostName: $CHOSTNAME
+</div> 
+
+</body>
+
+</html>

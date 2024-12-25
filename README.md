@@ -3,7 +3,7 @@ This rest app you can use for generating log and metric data using api as well a
 * API List   
 *               
   - /greeting   
-  - /issues  
+  - /issues-bugs
   - /dogcount
   - /catcount 
   - /logs?type=''
